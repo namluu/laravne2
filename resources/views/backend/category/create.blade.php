@@ -1,5 +1,8 @@
-<h1>category create</h1>
+@extends('backend.layout')
 
+@section('title', 'Category Create')
+
+@section('content')
 <p><a href="{{ route('backend.category.index') }}">Back to categories</a></p>
 
 <form method="POST" action="{{ route('backend.category.store') }}">
@@ -23,3 +26,4 @@
         <button type="submit">Submit</button>
     </p>
 </form>
+@endsection

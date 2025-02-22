@@ -25,6 +25,29 @@ class CategoryController extends Controller
         $data = $request->all();
         Category::create($data);
 
-        return redirect()->route('backend.category.index');
+        return redirect()->route('backend.category.index')->with('success', 'Category created successfully.');
+    }
+
+    public function edit($id): View
+    {
+        $category = Category::find($id);
+
+        return view('backend.category.edit', ['category' => $category]);
+    }
+
+    public function update($id)
+    {
+        $category = Category::find($id);
+        $category->update(request()->all());
+
+        return redirect()->route('backend.category.index')->with('success', 'Category updated successfully.');
+    }
+
+    public function destroy($id)
+    {
+        $category = Category::find($id);
+        $category->delete();
+
+        return redirect()->route('backend.category.index')->with('success', 'Category deleted successfully.');
     }
 }

@@ -17,6 +17,9 @@ Route::prefix('/backend')->group(function(){
         Route::get('/cms/categories', [CategoryController::class, 'index'])->name('backend.category.index');
         Route::get('/cms/categories/create', [CategoryController::class, 'create'])->name('backend.category.create');
         Route::post('/cms/categories', [CategoryController::class, 'store'])->name('backend.category.store');
+        Route::get('/cms/categories/edit/{id}', [CategoryController::class, 'edit'])->name('backend.category.edit');
+        Route::put('/cms/categories/{id}', [CategoryController::class, 'update'])->name('backend.category.update');
+        Route::delete('/cms/categories/{id}', [CategoryController::class, 'destroy'])->name('backend.category.destroy');
     });
 
     // Login Routes

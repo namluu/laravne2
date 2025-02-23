@@ -8,10 +8,20 @@
     </head>
     <body>
         <header>
-            <nav>NAV</nav>
+            <nav>
+                <ul>
+                    @foreach($categories as $category)
+                    <li><a href="./category/{{ $category->url }}">{{ $category->name }}</a></li>
+                    @endforeach
+                </ul>
+            </nav>
         </header>
         <main>
-            <section>SECTION 1</section>
+            <section>
+                @foreach($articles as $article)
+                    <div><a href="{{ Route('article', $article->url) }}">{{ $article->name }}</a></div>
+                @endforeach
+            </section>
             <section>SECTION 2</section>
             <section>SECTION 3</section>
         </main>

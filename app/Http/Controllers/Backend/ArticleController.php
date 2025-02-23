@@ -45,7 +45,9 @@ class ArticleController extends Controller
     public function update($id): RedirectResponse
     {
         $article = Article::find($id);
-        $article->update(request()->all());
+        $data = request()->all();
+        $data['content'] = nl2br($data['content']);
+        $article->update($data);
 
         return redirect()->route('backend.article.index')->with('success', 'Article updated successfully.');
     }

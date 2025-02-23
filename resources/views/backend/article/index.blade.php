@@ -9,14 +9,12 @@
 <table border="1">
     <tr>
         <td>Name</td>
-        <td>Url</td>
         <td>Active</td>
         <td>Action</td>
     </tr>
     @foreach($articles as $article)
     <tr>
         <td><?= $article->name ?></td>
-        <td><?= $article->url ?></td>
         <td><?= $article->enabled ?></td>
         <td>
             <a href="{{ route('backend.article.edit', $article->id) }}">Update</a>

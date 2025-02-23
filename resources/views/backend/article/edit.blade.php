@@ -32,6 +32,9 @@
         <input type="radio" name="enabled" id="no" value="0" {{ !$article->enabled ? 'checked' : '' }}>
     </p>
     <p>
+        <textarea name="content" cols="100" rows="20"></textarea>
+    </p>
+    <p>
         <button type="submit">Submit</button>
     </p>
 </form>

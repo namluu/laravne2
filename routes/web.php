@@ -5,10 +5,11 @@ use App\Http\Controllers\Backend\BackendController;
 use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ArticleController;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/article/{article:url}', [HomeController::class, 'showArticle'])->name('article');
+Route::get('/category/{category:url}', [HomeController::class, 'showCategory'])->name('category');
 
 Route::prefix('/backend')->group(function(){
     Route::middleware(['auth:admin'])->group(function () {

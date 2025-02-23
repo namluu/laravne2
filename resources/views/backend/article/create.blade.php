@@ -31,6 +31,9 @@
         <input type="radio" name="enabled" id="no" value="0">
     </p>
     <p>
+        <textarea name="content"></textarea>
+    </p>
+    <p>
         <button type="submit">Submit</button>
     </p>
 </form>

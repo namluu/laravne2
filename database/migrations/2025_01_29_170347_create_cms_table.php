@@ -26,6 +26,7 @@ return new class extends Migration
             $table->boolean('enabled')->default(1);
             $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->constrained('cms_categories');
+            $table->text('content')->nullable();
             $table->timestamps();
         });
     }

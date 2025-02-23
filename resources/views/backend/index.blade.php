@@ -1,14 +1,14 @@
-<h1>backend index view</h1>
+@extends('backend.layout')
 
-@auth('admin')
-<p>Hello: <?= $user->name ?></p>
+@section('title', 'Backend Dashboard')
 
-<ul>
-    <li><a href="{{ route('backend.category.index') }}">Categories</a></li>
-</ul>
+@section('content')
+    @auth('admin')
+    <p>Hello: <?= $user->name ?></p>
 
-<form method="POST" action="{{ route('logout') }}">
-    @csrf
-    <button type="submit" class="btn btn-primary btn-block">logout</button>
-</form>
-@endauth
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit" class="btn btn-primary btn-block">logout</button>
+    </form>
+    @endauth
+@endsection

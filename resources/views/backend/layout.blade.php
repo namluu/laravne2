@@ -11,6 +11,13 @@
         </div>
     @endif
 
+    <nav>
+        <ul>
+            <li><a href="{{ route('backend.category.index') }}">Categories</a></li>
+            <li><a href="{{ route('backend.article.index') }}">Articles</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
         @yield('content')
     </div>

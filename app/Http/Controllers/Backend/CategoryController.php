@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use App\Models\Category;
 
 class CategoryController extends Controller
@@ -20,7 +21,7 @@ class CategoryController extends Controller
         return view('backend.category.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $data = $request->all();
         Category::create($data);
@@ -35,7 +36,7 @@ class CategoryController extends Controller
         return view('backend.category.edit', ['category' => $category]);
     }
 
-    public function update($id)
+    public function update($id): RedirectResponse
     {
         $category = Category::find($id);
         $category->update(request()->all());
@@ -43,7 +44,7 @@ class CategoryController extends Controller
         return redirect()->route('backend.category.index')->with('success', 'Category updated successfully.');
     }
 
-    public function destroy($id)
+    public function destroy($id): RedirectResponse
     {
         $category = Category::find($id);
         $category->delete();
